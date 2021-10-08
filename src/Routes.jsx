@@ -1,6 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { path } from './constants/path'
+import RegisterLayout from './layouts/RegisterLayout'
 import Login from './pages/Auth/Login/Login'
 import Register from './pages/Auth/Register/Register'
 import Home from './pages/Home/Home'
@@ -13,10 +14,14 @@ export default function Routes() {
         <Home />
       </Route>
       <Route path={path.register}>
-        <Register />
+        <RegisterLayout title="Đăng kí">
+          <Register />
+        </RegisterLayout>
       </Route>
       <Route path={path.login}>
-        <Login />
+        <RegisterLayout title="Đăng nhập">
+          <Login />
+        </RegisterLayout>
       </Route>
       <Route path={path.notFound}>
         <NotFound />
