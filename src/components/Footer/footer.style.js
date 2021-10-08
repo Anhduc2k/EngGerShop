@@ -48,6 +48,10 @@ export const FooterListItem = styled.ul`
     color: #ee4d2d;
     cursor: pointer;
   }
+  svg {
+    height: 2rem;
+    width: 4rem;
+  }
 `
 
 export const FooterHeading = styled.footer`
