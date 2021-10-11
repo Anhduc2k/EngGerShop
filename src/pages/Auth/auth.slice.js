@@ -7,14 +7,20 @@ export const register = createAsyncThunk(
   'auth/register',
   payloadCreator(authApi.register)
 )
+export const login = createAsyncThunk(
+  'auth/login',
+  payloadCreator(authApi.login)
+)
+const handleAuthFulfilled = (state, action) => {
+  state.profile = action.payload.data
+  localStorage.setItem(LocalStorage.user, JSON.stringify(state.profile))
+}
 const auth = createSlice({
   name: 'auth',
   initialState: { profile: localStorage.getItem(LocalStorage.user) || {} }, //neu f5 page thi check xem user da co hay chua, neu co thi cap nhat
   extraReducers: {
-    [register.fulfilled]: (state, action) => {
-      state.profile = action.payload.data
-      localStorage.setItem(LocalStorage.user, JSON.stringify(state.profile)) //luu thong tin user vao localstorage
-    }
+    [register.fulfilled]: handleAuthFulfilled,
+    [login.fulfilled]: handleAuthFulfilled
   }
 })
 
