@@ -1,6 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import { path } from './constants/path'
+import MainLayout from './layouts/MainLayout/MainLayout'
 import RegisterLayout from './layouts/RegisterLayout'
 import Login from './pages/Auth/Login/Login'
 import Register from './pages/Auth/Register/Register'
@@ -11,7 +12,9 @@ export default function Routes() {
   return (
     <Switch>
       <Route path={path.home} exact>
-        <Home />
+        <MainLayout>
+          <Home />
+        </MainLayout>
       </Route>
       <Route path={path.register}>
         <RegisterLayout title="Đăng kí">
