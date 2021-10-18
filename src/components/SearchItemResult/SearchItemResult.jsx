@@ -1,4 +1,5 @@
 import React from 'react'
+import Pagination from '../Pagination/Pagination'
 import ProductItem from '../ProductItem/ProductItem'
 import * as S from './searchItemResult.style'
 export default function SearchItemResult() {
@@ -56,6 +57,7 @@ export default function SearchItemResult() {
         <ProductItem />
         <ProductItem />
       </S.ProductList>
+      <Pagination />
     </div>
   )
 }
